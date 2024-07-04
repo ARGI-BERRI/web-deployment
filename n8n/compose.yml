@@ -1,0 +1,26 @@
+services:
+  n8n:
+    image: docker.n8n.io/n8nio/n8n
+    restart: always
+    ports:
+      - 5678:5678
+    env_file:
+      - .config/docker.env
+    volumes:
+      - ./n8n:/home/node/.n8n
+    networks:
+      - external_network
+      - n8n_internal_network
+
+  n8n-redis:
+    image: redis:latest
+    restart: always
+    volumes:
+      - ./redis:/data
+    networks:
+      - n8n_internal_network
+
+networks:
+  n8n_internal_network:
+    internal: true
+  external_network:
