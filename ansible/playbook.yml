@@ -6,6 +6,7 @@
       vars:
         tailscale_authkey: "{{ lookup('ansible.builtin.env', 'ANSIBLE_TAILSCALE_AUTHKEY') }}"
         tailscale_args: "--ssh"
+    - role: geerlingguy.docker
   become: true
   tasks:
     - name: Install packages

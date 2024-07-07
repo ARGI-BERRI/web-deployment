@@ -1,3 +1,6 @@
 - src: https://github.com/artis3n/ansible-role-tailscale.git
   scm: git
   name: atris3n.tailscale
+- src: https://github.com/geerlingguy/ansible-role-docker
+  scm: git
+  name: geerlingguy.docker
