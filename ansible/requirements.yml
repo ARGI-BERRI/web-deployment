@@ -1,0 +1,3 @@
+- src: https://github.com/artis3n/ansible-role-tailscale.git
+  scm: git
+  name: atris3n.tailscale

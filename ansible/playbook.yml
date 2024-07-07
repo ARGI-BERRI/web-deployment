@@ -1,0 +1,21 @@
+- name: Play for deploying mandatory packages
+  hosts:
+    - all
+  roles:
+    - role: atris3n.tailscale
+      vars:
+        tailscale_authkey: "{{ lookup('ansible.builtin.env', 'ANSIBLE_TAILSCALE_AUTHKEY') }}"
+        tailscale_args: "--ssh"
+  become: true
+  tasks:
+    - name: Install packages
+      ansible.builtin.apt:
+        update_cache: true
+        pkg:
+          - git
+          - curl
+          - zip
+          - unzip
+          - neovim
+          - cron
+        state: present
